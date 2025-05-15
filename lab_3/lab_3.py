@@ -47,10 +47,10 @@ for n in range(M):
 # Аналітичний розв'язок (30 доданків)
 
 def analytical_solution(t, y, terms=30):
-    result = alpha + (beta - alpha) * y / L
-    for k in range(1, terms + 1):
-        lam = np.pi * k / L
-        coef = 2 * (beta - alpha) * ((-1)**k) / (k * np.pi)
+    result = ((beta - alpha) / L) * y + alpha
+    for n in range(1, terms + 1):
+        lam = np.pi * n / L
+        coef = (2 / np.pi) * (1 / n) * (beta * ((-1)**n) - alpha)
         result += coef * np.sin(lam * y) * np.exp(-a * t * lam**2)
     return result
 
